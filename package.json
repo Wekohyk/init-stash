@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "prepare": "husky",
     "lint": "eslint --fix --no-error-on-unmatched-pattern src/**/*.{js,ts,jsx,tsx,vue}",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test": "lint-staged"
   },
   "husky": {
     "hooks": {
@@ -18,8 +19,9 @@
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,vue}": [
-      "eslint --fix",
-      "prettier --write --ignore-unknown"
+      "prettier --write --ignore-unknown",
+      "eslint --ext .tsx,.ts --fix ./src",
+      "git add"
     ]
   },
   "dependencies": {
