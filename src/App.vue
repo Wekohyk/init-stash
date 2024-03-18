@@ -1,5 +1,5 @@
 <template>
-  <div>App</div>
+  <div>App router</div>
 </template>
 
 <script setup lang="ts"></script>
