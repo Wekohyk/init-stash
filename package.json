@@ -20,8 +20,7 @@
   "lint-staged": {
     "*.{js,ts,jsx,tsx,vue}": [
       "prettier --write --ignore-unknown",
-      "eslint --ext .tsx,.ts --fix ./src",
-      "git add"
+      "eslint --ext .tsx,.ts --fix ./src"
     ]
   },
   "dependencies": {
