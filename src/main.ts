@@ -7,6 +7,13 @@ import persist from 'pinia-plugin-persistedstate';
 import router from './router';
 // i18n
 import i18n from './lang';
+/**
+ * Import the Unocss core styles
+ * Best placed after reset style, before uno.css
+ */
+import './assets/styles/index.scss';
+// Import the Unocss utilities styles
+import 'uno.css';
 // App
 import App from './App.vue';
 
