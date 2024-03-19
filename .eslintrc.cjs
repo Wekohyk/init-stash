@@ -16,6 +16,8 @@ module.exports = {
     // './node_modules/@gly/flyer/src/storm-mini-program/.eslintrc.cjs',
     // prettier
     "prettier",
+    // unocss
+    "@unocss"
   ],
   overrides: [],
   parser: "vue-eslint-parser",
