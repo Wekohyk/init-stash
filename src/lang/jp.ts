@@ -1,3 +1,3 @@
 export default {
-  name: 'Weko',
+  name: '太君',
 };
