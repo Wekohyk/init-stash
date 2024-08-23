@@ -36,6 +36,8 @@ module.exports = {
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-inferrable-types': 'off',
     '@typescript-eslint/no-namespace': 'off',
+    // any不进行校验
+    '@typescript-eslint/no-explicit-any': 'off',
   },
   // globals --> Define global variables
   globals: {
