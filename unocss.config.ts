@@ -22,12 +22,21 @@ export default defineConfig({
   ],
   transformers: [transformerVariantGroup()],
   rules: [
+    // 隐藏滚动条
     [
       /^scrollbar-hidden$/,
       () => {
         return `.scrollbar-hidden::-webkit-scrollbar { display: none; } `;
       },
     ],
+    // flex居中
+    [
+      /^flex-center$/,
+      () => {
+        return `{ display: flex; justify-content: center; align-items: center; }`;
+      },
+    ],
+    // 处理文本溢出并应用省略号
     [
       /^ellipsis-(\d+)$/,
       ([, d], { rawSelector }) => {
