@@ -6,7 +6,7 @@ import pinia from './store';
 // vue-router
 import router from './router';
 // i18n
-import i18n from './lang';
+import { getI18n } from './lang';
 /**
  * Import the Unocss core styles
  * Best placed after reset style, before uno.css
@@ -19,5 +19,5 @@ import App from './App.vue';
 
 const app = createApp(App);
 
-app.use(pinia).use(i18n).use(router).directive('back-to-top', backToTop);
+app.use(pinia).use(router).use(getI18n()).directive('back-to-top', backToTop);
 app.mount('#app');

@@ -3,8 +3,7 @@ import en from './en.json';
 import jp from './ja.json';
 
 import { createI18n } from 'vue-i18n';
-import { getLocale } from './tool';
-export type Languages = 'zh' | 'en' | 'jp';
+import { getLocale } from '@/utils/tool';
 
 const languages = {
   zh,
@@ -42,9 +41,11 @@ const i18n = createI18n({
 export function getI18nGlobal() {
   return i18n.global;
 }
+
 export function getI18n() {
   return i18n;
 }
+
 export function getI18nLocale() {
   return i18n.global.locale;
 }
