@@ -1,19 +1,50 @@
-import { createI18n } from 'vue-i18n';
-import zh from './zh.ts';
-import en from './en.ts';
-import jp from './jp.ts';
-import { getLocale } from './tool';
+import zh from './zh.json';
+import en from './en.json';
+import jp from './ja.json';
 
-// 约束所有lang对象为typeof zh
+import { createI18n } from 'vue-i18n';
+import { getLocale } from './tool';
+export type Languages = 'zh' | 'en' | 'jp';
+
+const languages = {
+  zh,
+  en,
+  jp,
+};
+const initLocale = getLocale();
+
 const i18n = createI18n({
-  locale: getLocale(),
-  messages: {
-    zh,
-    en,
-    jp,
-  },
+  locale: initLocale,
+  messages: languages,
   legacy: false,
+  fallbackLocale: {
+    zh: ['en', 'jp'],
+    en: ['zh', 'jp'],
+    jp: ['en', 'zh'],
+  },
 });
-export const getI18nGlobal = () => i18n.global;
-export const $t = i18n.global.t.bind(i18n.global);
-export default i18n;
+
+// 此处根据实际情况修改
+// if (!tw.isPolyfill) {
+//   tw.observeLanguageChanged(lang => {
+//     /**
+//      * 由于tw.language 更新不及时，所以必须传入给getLocale
+//      */
+//     const locale = getLocale(lang);
+//     console.log('change', lang);
+//     console.log('cur', locale);
+
+//     setVantLocale[locale]();
+//     i18n.global.locale.value = locale;
+//   });
+// }
+
+export function getI18nGlobal() {
+  return i18n.global;
+}
+export function getI18n() {
+  return i18n;
+}
+export function getI18nLocale() {
+  return i18n.global.locale;
+}

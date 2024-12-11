@@ -1,8 +1,9 @@
 import { computed } from 'vue';
-import i18n from './index';
 import { Dayjs } from 'dayjs';
-
+import { getI18n, Languages } from './index';
+const i18n = getI18n();
 export function getLocale(lang?: string): Languages {
+  // 此处可以根据实际情况修改 tw.language
   // lang = lang || tw.language || widget.language;
   if (lang?.includes('ja')) {
     return 'jp';
@@ -22,15 +23,23 @@ export const isZh = computed(() => lang.value === 'zh');
 export function formatStrByArea<T>(stdin: Glyi18n<T>) {
   return stdin[lang.value] || stdin.zh;
 }
+interface DateTime {
+  time: string;
+  date: string;
+  day: string;
+  shortDay: string;
+  lunarDate?: string;
+}
 export function formatTimeByArea(time: Dayjs): DateTime {
   const result = {
     time: '',
     date: '',
     day: '',
+    shortDay: '',
   };
   result.time = time.format('HH:mm');
   result.day = time.format('dddd');
-
+  result.shortDay = time.format('ddd');
   switch (lang.value) {
     case 'zh':
     case 'jp':
