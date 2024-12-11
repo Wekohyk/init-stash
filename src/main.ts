@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 // pinia and pinia-plugin-persistedstate
-import pinia from './stores';
+import pinia from './store';
 // vue-router
 import router from './router';
 // i18n
