@@ -59,7 +59,7 @@
       <div
         class="fixed left-0 z-50 adapt-top-44 bottom-0"
         style="width: 15pt"
-        @touchmove.prevent
+        @touchmove.passive.prevent
       ></div>
       <slot></slot>
     </main>
