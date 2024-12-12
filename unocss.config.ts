@@ -33,7 +33,7 @@ export default defineConfig({
     [
       /^flex-center$/,
       () => {
-        return `{ display: flex; justify-content: center; align-items: center; }`;
+        return `.flex-center { display: flex; justify-content: center; align-items: center; }`;
       },
     ],
     // 处理文本溢出并应用省略号
